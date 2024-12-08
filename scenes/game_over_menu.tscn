@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1hwd1cq7nyjq"]
+
+[ext_resource type="FontFile" uid="uid://baggc4wfjx60f" path="res://assets/Pixel Game.otf" id="1_pn8e4"]
+[ext_resource type="Script" path="res://scenes/game_over_menu.gd" id="1_xuw0e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7oxea"]
+bg_color = Color(0.0701344, 0.21367, 0.361154, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hh2e"]
+bg_color = Color(0, 0.721879, 0.295934, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytmq"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_xuw0e")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7oxea")
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -90.0
+offset_right = 109.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pn8e4")
+theme_override_font_sizes/font_size = 58
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pn8e4")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1hh2e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ytmq")
+text = "RESTART"
+text_overrun_behavior = 1
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
